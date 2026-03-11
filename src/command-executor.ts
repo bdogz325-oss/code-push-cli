@@ -1,4 +1,4 @@
-﻿import AccountManager = require('code-push');
+import AccountManager = require('code-push');
 import chalk from 'chalk';
 import childProcess from 'child_process';
 import debugCommand from './commands/debug';
@@ -41,10 +41,9 @@ import { out } from './util/interaction';
 import { isValidRange } from './lib/validation-utils';
 import { getCordovaProjectAppVersion } from './lib/cordova-utils';
 
-var configFilePath: string = path.join(
-    process.env.LOCALAPPDATA || process.env.HOME,
-    '.code-push.config',
-);
+var configFilePath: string =
+    process.env.CODE_PUSH_CONFIG ||
+    path.join(process.env.LOCALAPPDATA || process.env.HOME, '.code-push.config');
 var packageJson = require('../package.json');
 
 const CLI_HEADERS: Headers = {
